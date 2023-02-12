@@ -3,7 +3,7 @@ import bookingRepository from "@/repositories/booking-repository";
 import enrollmentRepository from "@/repositories/enrollment-repository";
 import ticketRepository from "@/repositories/ticket-repository";
 import { cannotListHotelsError } from "@/errors/cannot-list-hotels-error";
-import { prisma } from "@prisma/client";
+import { FORBIDDEN } from "http-status";
 
 
 async function getBookingBody(userId: number) {
@@ -21,9 +21,6 @@ async function getBookingBody(userId: number) {
 
 async function createBooking(userId: number, roomId: number) {
     const enrollment = await enrollmentRepository.findWithAddressByUserId(userId);
-    if (!enrollment) {
-        throw unauthorizedError();
-    }
     //Tem ticket pago isOnline false e includesHotel true
     const ticket = await ticketRepository.findTicketByEnrollmentId(enrollment.id);
 
@@ -31,35 +28,47 @@ async function createBooking(userId: number, roomId: number) {
         throw cannotListHotelsError();
     }
 
-    const user = await bookingRepository.findUserByUserId(userId);
-    if(!user){
-        throw unauthorizedError();
-    }
-
     const room = await bookingRepository.getRoomOfBookingByRoomId(roomId);
-    if(!room){
-        throw notFoundError();
-    }
+
     if(room.capacity===0){
-        throw unauthorizedError();
+        throw FORBIDDEN;
     }
 
     const bookingData = {
-        user,
         userId,
-        room,
         roomId,
     };
 
     const booking = await bookingRepository.createBooking(bookingData);
+    console.log(booking);
+
     
     return booking;
 }
 
+async function updateBooking(userId: number, roomId: number){
+    const booking = await bookingRepository.getBookingByUserId(userId);
+    if(!booking){
+        throw FORBIDDEN;
+    }
+
+    const room = await bookingRepository.getRoomOfBookingByRoomId(roomId);
+
+    if(room.capacity===0){
+        throw FORBIDDEN;
+    }
+
+    const updatedBooking = await bookingRepository.updateRoomWithBookingId(booking.id, roomId);
+    console.log(updatedBooking);
+    
+    return updatedBooking;
+
+}
 
 const bookingService = {
     getBookingBody,
     createBooking,
+    updateBooking
 }
 
 export default bookingService;

@@ -33,26 +33,25 @@ async function findUserByUserId(userId: number){
     });
 }
 
-async function upsertBooking(bookingId: number, roomId: number, Room: string | number []){
+async function updateRoomWithBookingId(bookingId: number, roomId: number){
     return prisma.booking.update({
         where: {
             id: bookingId,
         },
         data: {
             roomId: roomId,
-            Room: room,
         }
     })
 }
 
 export type CreateBookingParams = Omit<Booking, "id" | "createdAt" | "updatedAt">;
-export type UpdateBookingParams = Omit<Booking, "id" | "createdAt" | "updatedAt" | "User" | "userId" | >;
 
 const bookingRepository = {
     getBookingByUserId,
     getRoomOfBookingByRoomId,
     createBooking,
-    findUserByUserId
+    findUserByUserId,
+    updateRoomWithBookingId
 };
 
 
