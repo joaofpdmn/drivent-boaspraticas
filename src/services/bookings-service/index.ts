@@ -30,7 +30,7 @@ async function createBooking(userId: number, roomId: number) {
 
     const room = await bookingRepository.getRoomOfBookingByRoomId(roomId);
 
-    if(room.capacity===0){
+    if(room.capacity <= room.Booking.length){
         throw FORBIDDEN;
     }
 
@@ -40,7 +40,6 @@ async function createBooking(userId: number, roomId: number) {
     };
 
     const booking = await bookingRepository.createBooking(bookingData);
-    console.log(booking);
 
     
     return booking;
@@ -59,7 +58,6 @@ async function updateBooking(userId: number, roomId: number){
     }
 
     const updatedBooking = await bookingRepository.updateRoomWithBookingId(booking.id, roomId);
-    console.log(updatedBooking);
     
     return updatedBooking;
 

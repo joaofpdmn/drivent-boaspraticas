@@ -9,7 +9,14 @@ export async function getBookings(req: AuthenticatedRequest, res: Response){
         const booking = await bookingService.getBookingBody(Number(userId));
         return res.status(httpStatus.OK).send({
             id: booking.id,
-            Room: {}
+            Room: {
+                id: booking.Room.id,
+                name: booking.Room.name,
+                capacity: booking.Room.capacity,
+                hotelId: booking.Room.hotelId,
+                createdAt: booking.Room.createdAt.toISOString(),
+                updatedAt: booking.Room.updatedAt.toISOString(),
+            }
         });
     } catch (error) {
         return res.sendStatus(httpStatus.NOT_FOUND);
@@ -22,7 +29,7 @@ export async function createBooking(req: AuthenticatedRequest, res: Response){
     if(!roomId){ return res.sendStatus(httpStatus.NOT_FOUND); }
     try {
         const booking = await bookingService.createBooking(Number(userId), Number(roomId));
-        return res.status(httpStatus.OK).send(booking.id);
+        return res.status(httpStatus.OK).send({id: booking.id});
     } catch (error) {
         return res.sendStatus(403);
     }
@@ -35,7 +42,7 @@ export async function changeBooking(req: AuthenticatedRequest, res: Response){
         
     try {
         const updateBooking = await bookingService.updateBooking(Number(userId), Number(roomId));
-        return res.status(httpStatus.OK).send(updateBooking.id);
+        return res.status(httpStatus.OK).send({id: updateBooking.id});
     } catch (error) {
         return res.sendStatus(403);
     }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1676191394787" clover="3.2.0">
-  <project timestamp="1676191394787" name="All files">
+<coverage generated="1676303021351" clover="3.2.0">
+  <project timestamp="1676303021351" name="All files">
     <metrics statements="598" coveredstatements="327" conditionals="80" coveredconditionals="14" methods="98" coveredmethods="23" elements="776" coveredelements="364" complexity="0" loc="598" ncloc="598" packages="26" files="63" classes="63"/>
     <package name="src">
       <metrics statements="22" coveredstatements="15" conditionals="2" coveredconditionals="0" methods="5" coveredmethods="1"/>
@@ -80,23 +80,23 @@
         <line num="8" count="2" type="stmt"/>
         <line num="9" count="2" type="stmt"/>
         <line num="10" count="1" type="stmt"/>
-        <line num="15" count="1" type="stmt"/>
-        <line num="19" count="1" type="stmt"/>
-        <line num="20" count="7" type="stmt"/>
-        <line num="21" count="7" type="stmt"/>
-        <line num="22" count="7" type="cond" truecount="1" falsecount="0"/>
-        <line num="23" count="6" type="stmt"/>
-        <line num="24" count="6" type="stmt"/>
-        <line num="25" count="1" type="stmt"/>
-        <line num="27" count="5" type="stmt"/>
-        <line num="31" count="1" type="stmt"/>
-        <line num="32" count="4" type="stmt"/>
-        <line num="34" count="4" type="stmt"/>
-        <line num="35" count="4" type="cond" truecount="1" falsecount="0"/>
-        <line num="37" count="3" type="stmt"/>
-        <line num="38" count="3" type="stmt"/>
-        <line num="39" count="1" type="stmt"/>
-        <line num="41" count="2" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="27" count="7" type="stmt"/>
+        <line num="28" count="7" type="stmt"/>
+        <line num="29" count="7" type="cond" truecount="1" falsecount="0"/>
+        <line num="30" count="6" type="stmt"/>
+        <line num="31" count="6" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="34" count="5" type="stmt"/>
+        <line num="38" count="1" type="stmt"/>
+        <line num="39" count="4" type="stmt"/>
+        <line num="40" count="4" type="stmt"/>
+        <line num="41" count="4" type="cond" truecount="1" falsecount="0"/>
+        <line num="43" count="3" type="stmt"/>
+        <line num="44" count="3" type="stmt"/>
+        <line num="45" count="1" type="stmt"/>
+        <line num="47" count="2" type="stmt"/>
       </file>
       <file name="enrollments-controller.ts" path="/home/joaofp/drivent-boaspraticas/src/controllers/enrollments-controller.ts">
         <metrics statements="20" coveredstatements="5" conditionals="1" coveredconditionals="0" methods="3" coveredmethods="0"/>
@@ -365,11 +365,11 @@
         <line num="1" count="1" type="stmt"/>
         <line num="5" count="5" type="stmt"/>
         <line num="13" count="5" type="stmt"/>
-        <line num="21" count="1" type="stmt"/>
-        <line num="29" count="0" type="stmt"/>
-        <line num="37" count="1" type="stmt"/>
-        <line num="49" count="1" type="stmt"/>
-        <line num="58" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="51" count="1" type="stmt"/>
+        <line num="60" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.repositories.enrollment-repository">
@@ -654,17 +654,17 @@
         <line num="34" count="1" type="stmt"/>
         <line num="37" count="1" type="stmt"/>
         <line num="42" count="1" type="stmt"/>
-        <line num="44" count="1" type="stmt"/>
-        <line num="48" count="3" type="stmt"/>
-        <line num="49" count="3" type="cond" truecount="1" falsecount="0"/>
-        <line num="50" count="1" type="stmt"/>
-        <line num="53" count="2" type="stmt"/>
-        <line num="55" count="2" type="cond" truecount="1" falsecount="0"/>
-        <line num="56" count="1" type="stmt"/>
-        <line num="59" count="1" type="stmt"/>
-        <line num="61" count="1" type="stmt"/>
-        <line num="65" count="1" type="stmt"/>
-        <line num="71" count="1" type="stmt"/>
+        <line num="45" count="1" type="stmt"/>
+        <line num="49" count="3" type="stmt"/>
+        <line num="50" count="3" type="cond" truecount="1" falsecount="0"/>
+        <line num="51" count="1" type="stmt"/>
+        <line num="54" count="2" type="stmt"/>
+        <line num="56" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="57" count="1" type="stmt"/>
+        <line num="60" count="1" type="stmt"/>
+        <line num="62" count="1" type="stmt"/>
+        <line num="66" count="1" type="stmt"/>
+        <line num="72" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.services.enrollments-service">

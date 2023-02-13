@@ -13,6 +13,8 @@ async function getRoomOfBookingByRoomId(roomId: number){
     return prisma.room.findFirst({
         where: {
             id: roomId,
+        }, include: {
+            Booking: true,
         }
     });
 }
